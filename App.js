@@ -1,12 +1,19 @@
 import React from "react";
-import {View,Text} from "react-native"
+import { View, StyleSheet } from "react-native";
+import  CurrentWeather  from "./src/components/currentWeather.js";
 
-const App = ()=>{
-  return(
-    <View style={{height:100,width:100,backgroundColor:'orange'}}>
-      <Text>Hello world</Text>
+const App = () => {
+  return (
+    <View style={styles.container}>
+      <CurrentWeather />
     </View>
-  )
-}
+  );
+};
 
-export default App
+const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  }
+});
+
+export default App;
