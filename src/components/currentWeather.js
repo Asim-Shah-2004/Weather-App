@@ -9,7 +9,7 @@ const CurrentWeather = () => {
       <View style={styles.container}>
         <Feather name="sun" size={100} color="black" />
         <Text style={styles.temp}>6</Text>
-        <Text style={styles.feels}> Feels like 5</Text>
+        <Text style={styles.feels}> Feels like 8</Text>
         <View style={styles.HighLowWrapper}>
           <Text style={styles.HighLow}>High 5</Text>
           <Text style={styles.HighLow}>Low 6</Text>
@@ -28,7 +28,7 @@ const CurrentWeather = () => {
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-    backgroundColor: 'dark grey'
+    backgroundColor: 'pink'
   },
   container: {
     flex: 1,
