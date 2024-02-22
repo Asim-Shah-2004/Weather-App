@@ -1,6 +1,6 @@
 import React from "react";
 import { SafeAreaView, Text, FlatList, StyleSheet, View ,StatusBar ,ImageBackground } from "react-native";
-import { Feather } from '@expo/vector-icons';
+import ListItem from "../components/ListItem"
 
 const DATA = [
     {
@@ -35,27 +35,15 @@ const DATA = [
     }
 ];
 
-const Item = (props) => {
-    const { dt_txt, min, max } = props;
-    return (
-        <View style={styles.item}>
-            <Feather name={'sun'} size={50} color={'white'} />
-            <Text>{dt_txt}</Text>
-            <Text style={styles.temp}>{min}</Text>
-            <Text style={styles.temp}>{max}</Text>
-        </View>
-    );
-};
-
 const UpcomingWeather = () => {
     const renderItem = ({ item }) => {
-        return <Item dt_txt={item.dt_txt} min={item.main.temp_min} max={item.main.temp_max} />;
+        return <ListItem dt_txt={item.dt_txt} min={item.main.temp_min} max={item.main.temp_max} />;
     };
-
+    const {image,container} = styles;
     return (
-        <SafeAreaView style={styles.container}>
+        <SafeAreaView style={container}>
             <Text>Upcoming weather</Text>
-            <ImageBackground source={require('../../assets/bgImage.jpg')} style={styles.image}>
+            <ImageBackground source={require('../../assets/bgImage.jpg')} style={image}>
             <FlatList
                 data={DATA}
                 renderItem={renderItem}
@@ -71,20 +59,6 @@ const styles = StyleSheet.create({
         flex: 1,
         marginTop : StatusBar.currentHeight || 0,
         backgroundColor:'skyblue'
-    },
-    item:{
-        backgroundColor:'#80ace1',
-        padding:20,
-        marginVertical:8,
-        marginHorizontal: 16,
-        flexDirection:'row',
-        justifyContent:'space-around',
-        alignItems:'center',
-        borderWidth: 5,
-    },
-    temp:{
-        color:'white',
-        fontSize:20
     },
     image:{
         flex:1
