@@ -1,6 +1,5 @@
 import React from "react";
-import { View, Text, SafeAreaView, StyleSheet } from "react-native";
-import { StatusBar } from 'expo-status-bar';
+import { View, Text, SafeAreaView, StyleSheet ,StatusBar } from "react-native";
 import { Feather } from '@expo/vector-icons';
 
 const CurrentWeather = () => {
