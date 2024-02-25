@@ -2,24 +2,23 @@ import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { Feather } from '@expo/vector-icons'
 
-const ItemText = (props) => {
-  const { iconName, iconColor, iconText, bodyTextStyles } = props
-  const { textTheme, container } = styles
+const IconText = (props) => {
+  const { iconName, iconColor, bodyText, bodyTextStyles } = props
+  const { container, textTheme } = styles
   return (
     <View style={container}>
       <Feather name={iconName} size={50} color={iconColor} />
-      <Text style={[textTheme, bodyTextStyles]}>{iconText}</Text>
+      <Text style={[textTheme, bodyTextStyles]}>{bodyText}</Text>
     </View>
   )
 }
 
-const styles = new StyleSheet.create({
-  container: {
-    alignItems: 'center'
-  },
+const styles = StyleSheet.create({
   textTheme: {
     fontWeight: 'bold'
+  },
+  container: {
+    alignItems: 'center'
   }
 })
-
-export default ItemText
+export default IconText
