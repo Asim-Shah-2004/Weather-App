@@ -1,27 +1,27 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, TextInput, Button } from 'react-native';
+import { StyleSheet, View, Text, TextInput, Button, Alert } from 'react-native'; // Import Alert
 import { Feather } from '@expo/vector-icons';
+import axios from 'axios';
 
 const LoginScreen = () => {
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('http://localhost:3000/api/login', {
-        email,
+      const response = await axios.post('http://192.168.21.245:3000/login', {
+        username,
         password,
       });
 
       if (response.status === 200) {
         console.log('Login successful:', response.data);
-        
       } else {
         console.log('Login failed:', response.data);
       }
     } catch (error) {
       console.error('Error during login request:', error);
-      Alert.alert('Error', 'An error occurred while logging in.');
+      Alert.alert('Error', 'An error occurred while logging in.'); // Use Alert from react-native
     }
   };
 
@@ -30,9 +30,9 @@ const LoginScreen = () => {
       <Feather name="user" size={24} color="gray" style={styles.icon} />
       <TextInput
         style={styles.input}
-        placeholder="Email"
-        value={email}
-        onChangeText={setEmail}
+        placeholder="username"
+        value={username}
+        onChangeText={setUsername}
         autoCapitalize="none"
         autoCompleteType="email"
         textContentType="emailAddress"

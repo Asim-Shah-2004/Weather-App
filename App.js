@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import Tabs from './src/components/Tabs'
 import { useGetWeather } from './src/hooks/useGetWeather'
 import ErrorItem from './src/components/ErrorItem'
+import LoginScreen from './src/screens/Login'
 
 const App = () => {
   const [loading, error, weather] = useGetWeather()
@@ -11,7 +12,7 @@ const App = () => {
   if (weather && weather.list && !loading) {
     return (
       <NavigationContainer>
-        <Tabs weather={weather} />
+        <LoginScreen />
       </NavigationContainer>
     )
   }
