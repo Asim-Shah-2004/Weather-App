@@ -3,7 +3,7 @@ import { StyleSheet, View, Text, TextInput, Button, Alert } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import axios from 'axios';
 
-const LoginScreen = () => {
+const LoginScreen = ({onLoginSuccess}) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -13,18 +13,18 @@ const LoginScreen = () => {
         username,
         password,
       });
-
+  
       if (response.status === 200) {
         console.log('Login successful:', response.data);
+        onLoginSuccess(); // Call the onLoginSuccess callback
       } else {
         console.log('Login failed:', response.data);
       }
     } catch (error) {
       console.error('Error during login request:', error);
-      Alert.alert('Error', 'An error occurred while logging in.'); // Use Alert from react-native
+      Alert.alert('Error', 'An error occurred while logging in.');
     }
   };
-
   return (
     <View style={styles.container}>
       <Feather name="user" size={24} color="gray" style={styles.icon} />
